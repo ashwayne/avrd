@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    a{
+    color:black;
+    text-decoration:none;
+    }
+</style>
+</head>
+<body>
+<form method="post" action="">{% csrf_token %}
+    <p> Wanna Delete {{ object.title }} ? </p>
+    <input type="submit" value="Confirm" />
+    <button><a href="{{ object.get_absolute_url }}">Cancel</a></button>
+</form>
+</body>
+</html>

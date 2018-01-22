@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSTree</title>
+    <script src="jquery-3.2.1.min.js" ></script>
+    <script src="jstree.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href='style.min.css' />
+</head>
+<body>
+<div class="main">
+</div>
+<button id="btn1" >Load Messages</button>
+<div class="tree">
+<ul>
+    <li>asd</li>
+    <li>asd
+        <ul>
+            <li>lol</li>
+            <li>lol</li>
+            <li>lol
+                 <ul>
+                    <li id="1" >haha</li>
+                    <li id="2" >haha</li>
+                    <li id="3" >haha</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>asd
+        <ul>
+            <li>qwe</li>
+        </ul>
+    </li>
+    <li>asd</li>
+</ul>
+    </div>
+<button onclick="aajax();">submit</button>
+
+<script>
+    $(function (){
+        $('.tree').jstree({"types":{ "file": {"icon": "jstree-icon jstree-file"}},
+                                    "plugins" : ["checkbox", "types"] });
+        var jsonNodes = $('.tree').jstree(true).get_json('#', { flat: true });
+        $.each(jsonNodes, function (i, val){
+            if(val.text.endsWith("haha")){
+                $('.tree').jstree("set_type",val, "file")
+                console.log(val.type)
+            }
+
+        });
+
+    })
+
+    function aajax(){
+        a = $('.tree').jstree("get_selected", true);
+        b = []
+        for(var w = 0; w < a.length ; w++){
+            b.push(a[w].id)
+        }
+        console.log(b)
+
+    }
+</script>
+</body>
+</html>
+
+<!-- //console.log($(".tree").jstree.get_selected(true)[0].text);-->

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<h1>{{title}}</h1>
+{% include "mapp/form.html" with form=form title='UpdateField' %}
+<button><a href="{% url 'detail' object.slug  %}">Back</a></button>
+</body>
+</html>

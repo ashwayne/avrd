@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    a{
+    text-decoration:none;
+    color:inherit;
+    }
+    ul{
+    list-style-type:none
+    }
+    li:hover{
+    border: 1px solid;
+    }
+    li{
+    color:black;
+    font-size:1.5em;
+    line-height:1.5em;
+    display:inline-block;
+    border-radius:5px;
+    padding:3px;
+    }
+
+</style>
+</head>
+<body>
+{%if messages %}
+<div style="background-color:green;color:white;padding:5px;border-radius:5px;">
+{% for message in messages %}
+{{message}} </br>
+{% endfor %}
+</div>
+{% endif %}
+<ul>
+{% for object in object_list %}
+<div>
+<li><a href="{{ object.get_absolute_url }}">{{ object }}</a></li>
+</div>
+{% endfor %}
+<button><a href="{% url 'create'  %}">Create</a></button>
+</ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--<style>-->
+    <!--a{-->
+    <!--color:black;-->
+    <!--text-decoration:none;-->
+    <!--}-->
+<!--</style>-->
+</head>
+<body>
+
+
+<p>Title : {{ object.title }}</p>
+
+<p>Published Date : {{ object.pub_date }}</p>
+
+<p>Publish : {{ object.publish }}</p>
+
+<button><a href="{% url 'list' %}">List</a></button>
+<button><a href="{% url 'update' object.slug  %}">Update</a></button>
+<button><a href="{% url 'delete' object.slug  %}">Delete</a></button>
+
+{% include "mapp/form.html" with form=form %}
+
+</body>
+</html>
